@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_07_101831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "e_payment", default: false, null: false
-    t.boolean "card", default: false, null: false
+    t.boolean "card_payment", default: false, null: false
     t.index ["place_id"], name: "index_shops_on_place_id", unique: true
   end
 end
