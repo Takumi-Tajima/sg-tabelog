@@ -19,5 +19,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_07_084506) do
     t.string "place_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_shops_on_place_id", unique: true
   end
 end

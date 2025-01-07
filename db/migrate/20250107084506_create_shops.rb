@@ -5,6 +5,7 @@ class CreateShops < ActiveRecord::Migration[8.0]
       t.string :place_id, null: false
 
       t.timestamps
+      t.index :place_id, unique: true
     end
   end
 end
