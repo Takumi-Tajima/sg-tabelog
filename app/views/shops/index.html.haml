@@ -1,1 +1,6 @@
 %h1.fs-2 お店一覧
+
+- @shops.each do |shop|
+  .card.mb-3
+    .card-body
+      .card-text= shop.name
