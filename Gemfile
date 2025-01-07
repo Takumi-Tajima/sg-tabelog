@@ -4,6 +4,7 @@ gem 'rails', '~> 8.0.0'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'google_places'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
