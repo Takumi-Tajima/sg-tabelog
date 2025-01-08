@@ -1,10 +1,11 @@
 %h1.fs-2 お店一覧
 
 - @shops.each do |shop|
-  .card.mb-3
-    .card-body
-      .card-text= shop.name
-      - if shop.e_payment
-        .card-text 電子マネー利用可 
-      - if shop.card_payment
-        .card-text クレジットカード利用可
+  = link_to shop.map_url do
+    .card.mb-3
+      .card-body
+        .card-text= shop.name
+        - if shop.e_payment
+          .card-text 電子マネー利用可 
+        - if shop.card_payment
+          .card-text クレジットカード利用可
