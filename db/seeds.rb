@@ -5,11 +5,12 @@ spots = client.spots(35.5942061, 139.6735866, radius: 500, types: 'restaurant', 
 spots.each do |spot|
   next unless spot
 
-  url = client.spot(spot.place_id, language: 'ja').url
+  spot_detail = client.spot(spot.place_id, language: 'ja')
 
   Shop.create!(
     name: spot.name,
     place_id: spot.place_id,
-    map_url: url
+    map_url: spot_detail.url,
+    business_hours: spot_detail.opening_hours ? spot_detail.opening_hours['weekday_text'] : []
   )
 end

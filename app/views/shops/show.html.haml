@@ -1,0 +1,8 @@
+%h1.fs-2= @shop.name
+
+.card
+  .card-body
+    %h2 営業時間
+    .card-text
+      - @shop.business_hours.each do |business_hour|
+        %p= business_hour
