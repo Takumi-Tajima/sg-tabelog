@@ -1,0 +1,24 @@
+%h1.display-4.mb-4= @shop.name
+
+.card.mt-5
+  .card-body
+    %h2.h5 営業時間
+    %ul.list-group.list-group-flush
+      - @shop.business_hours.each do |business_hour|
+        %li.list-group-item= business_hour
+
+    %h2.h5.mt-4 電子マネー
+    %p
+      - if @shop.e_payment
+        %span.badge.bg-success 利用可能
+      - else
+        %span.badge.bg-danger 利用不可
+
+    %h2.h5.mt-4 クレジットカード
+    %p
+      - if @shop.card_payment
+        %span.badge.bg-success 利用可能
+      - else
+        %span.badge.bg-danger 利用不可
+
+    = link_to 'マップ', @shop.map_url, class: 'btn btn-primary mt-3'

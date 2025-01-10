@@ -1,0 +1,23 @@
+%ul.nav.nav-tabs{ 'id': 'myTab', 'role': 'tablist' }
+  %li.nav-item
+    = link_to 'Restaurants', shops_path, class: 'text-body nav-link active', 'data-bs-toggle': 'tab', 'data-bs-target': '#hoge'
+  %li.nav-item
+    = link_to 'Cafes', shops_path, class: 'text-body  nav-link', 'data-bs-toggle': 'tab', 'data-bs-target': '#fuga'
+
+.tab-content{ 'id': 'myTabContent' }
+  #hoge.tab-pane.fade.show.active
+    .mt-5
+    - @shops.each do |shop|
+      = link_to shop_path(shop), class: 'text-decoration-none' do
+        .card.mb-3
+          .card-body.d-flex.justify-content-between
+            .card-text.fs-3.text-body= shop.name
+            .card-text.d-flex.flex-row-reverse
+              - if shop.business_hours.present?
+                = link_to 'マップ', shop.map_url, class: 'btn btn-primary ms-3'
+              - if shop.e_payment
+                = image_tag 'e_payment.png', size: '40x40'
+              - if shop.card_payment
+                %i.bi.bi-credit-card.fs-3
+  #fuga.tab-pane.fade
+    %h3.mt-5 随時更新いたしますので、お待ちください。
